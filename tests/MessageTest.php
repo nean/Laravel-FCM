@@ -151,6 +151,5 @@ class PayloadTest extends FCMTestCase
 
         $optionBuilder = new OptionsBuilder();
         $optionBuilder->setTimeToLive(2419200 * 10);
-
     }
 }

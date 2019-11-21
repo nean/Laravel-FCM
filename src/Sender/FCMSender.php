@@ -2,15 +2,15 @@
 
 namespace LaravelFCM\Sender;
 
-use LaravelFCM\Message\Topics;
-use LaravelFCM\Request\Request;
+use GuzzleHttp\Exception\ClientException;
 use LaravelFCM\Message\Options;
 use LaravelFCM\Message\PayloadData;
+use LaravelFCM\Message\PayloadNotification;
+use LaravelFCM\Message\Topics;
+use LaravelFCM\Request\Request;
+use LaravelFCM\Response\DownstreamResponse;
 use LaravelFCM\Response\GroupResponse;
 use LaravelFCM\Response\TopicResponse;
-use GuzzleHttp\Exception\ClientException;
-use LaravelFCM\Response\DownstreamResponse;
-use LaravelFCM\Message\PayloadNotification;
 
 /**
  * Class FCMSender.

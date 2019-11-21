@@ -2,10 +2,10 @@
 
 namespace LaravelFCM\Response;
 
-use Psr\Http\Message\ResponseInterface;
-use LaravelFCM\Response\Exceptions\ServerResponseException;
 use LaravelFCM\Response\Exceptions\InvalidRequestException;
+use LaravelFCM\Response\Exceptions\ServerResponseException;
 use LaravelFCM\Response\Exceptions\UnauthorizedRequestException;
+use Psr\Http\Message\ResponseInterface;
 
 /**
  * Class BaseResponse.

@@ -2,9 +2,9 @@
 
 namespace LaravelFCM\Response;
 
-use Monolog\Logger;
 use LaravelFCM\Message\Topics;
 use Monolog\Handler\StreamHandler;
+use Monolog\Logger;
 use Psr\Http\Message\ResponseInterface;
 
 /**

@@ -146,7 +146,7 @@ class PayloadNotification implements Arrayable
         ];
 
         // remove null values
-        $notification = array_filter($notification, function($value) {
+        $notification = array_filter($notification, function ($value) {
             return $value !== null;
         });
         
