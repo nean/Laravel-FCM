@@ -74,7 +74,7 @@ class FCMGroup extends HTTPSender
     private function getNotificationToken(ResponseInterface $response)
     {
         if (! $this->isValidResponse($response)) {
-            return null;
+            return;
         }
 
         $json = json_decode($response->getBody()->getContents(), true);

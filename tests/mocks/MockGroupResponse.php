@@ -46,6 +46,7 @@ class MockGroupResponse implements GroupResponseContract
     public function setNumberSuccess($numberSuccess)
     {
         $this->numberTokensSuccess = $numberSuccess;
+
         return $this;
     }
 
@@ -68,6 +69,7 @@ class MockGroupResponse implements GroupResponseContract
     public function setNumberFailure($numberFailures)
     {
         $this->numberTokensSuccess = $numberFailures;
+
         return $this;
     }
 
@@ -90,6 +92,7 @@ class MockGroupResponse implements GroupResponseContract
     public function addTokenFailed($tokenFailed)
     {
         $this->tokensFailed[] = $tokenFailed;
+
         return $this;
     }
 
@@ -118,6 +121,7 @@ class MockGroupResponse implements GroupResponseContract
     public function setTo($to)
     {
         $this->to = $to;
+
         return $this;
     }
 }

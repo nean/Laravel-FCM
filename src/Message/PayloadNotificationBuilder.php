@@ -326,7 +326,7 @@ class PayloadNotificationBuilder
     }
 
     /**
-     * Get channel id for android api >= 26
+     * Get channel id for android api >= 26.
      *
      * @return null|string
      */

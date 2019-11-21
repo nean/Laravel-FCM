@@ -46,6 +46,7 @@ class MockTopicResponse implements TopicResponseContract
     public function setSuccess($messageId)
     {
         $this->messageId = $messageId;
+
         return $this;
     }
 
@@ -68,6 +69,7 @@ class MockTopicResponse implements TopicResponseContract
     public function setError($error)
     {
         $this->error = $error;
+
         return $this;
     }
 
