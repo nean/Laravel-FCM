@@ -8,6 +8,10 @@ class ResponseTest extends FCMTestCase
 {
     /**
      * @test
+     * @covers \LaravelFCM\FCMServiceProvider
+     * @covers \LaravelFCM\Sender\FCMSender<extended>
+     * @covers \LaravelFCM\Request\Request<extended>
+     * @covers \LaravelFCM\Response\DownstreamResponse<extended>
      */
     public function it_send_a_notification_to_a_device()
     {
@@ -32,6 +36,10 @@ class ResponseTest extends FCMTestCase
 
     /**
      * @test
+     * @covers \LaravelFCM\FCMServiceProvider
+     * @covers \LaravelFCM\Sender\FCMSender<extended>
+     * @covers \LaravelFCM\Request\Request<extended>
+     * @covers \LaravelFCM\Response\DownstreamResponse<extended>
      */
     public function it_send_a_notification_to_more_than_1000_devices()
     {
@@ -64,6 +72,11 @@ class ResponseTest extends FCMTestCase
 
     /**
      * @test
+     * @covers \LaravelFCM\FCMServiceProvider
+     * @covers \LaravelFCM\Sender\FCMSender<extended>
+     * @covers \LaravelFCM\Request\Request<extended>
+     * @covers \LaravelFCM\Response\DownstreamResponse<extended>
+     * @covers \LaravelFCM\Response\Exceptions\InvalidRequestException
      */
     public function an_empty_array_of_tokens_thrown_an_exception()
     {
@@ -86,7 +99,7 @@ class ResponseTest extends FCMTestCase
         $client->shouldReceive('request')->once()->andReturn($response);
 
         $fcm = new FCMSender($client, 'http://test.test');
-        $this->setExpectedException(\LaravelFCM\Response\Exceptions\InvalidRequestException::class);
+        $this->expectException(\LaravelFCM\Response\Exceptions\InvalidRequestException::class);
         $fcm->sendTo([]);
     }
 }

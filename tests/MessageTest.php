@@ -10,6 +10,10 @@ class PayloadTest extends FCMTestCase
 {
     /**
      * @test
+     * @covers \LaravelFCM\FCMServiceProvider
+     * @covers \LaravelFCM\Message\OptionsBuilder
+     * @covers \LaravelFCM\Message\Options
+     * @covers \LaravelFCM\Message\OptionsPriorities
      */
     public function it_construct_a_valid_json_with_option()
     {
@@ -48,6 +52,9 @@ class PayloadTest extends FCMTestCase
 
     /**
      * @test
+     * @covers \LaravelFCM\FCMServiceProvider
+     * @covers \LaravelFCM\Message\PayloadData
+     * @covers \LaravelFCM\Message\PayloadDataBuilder
      */
     public function it_construct_a_valid_json_with_data()
     {
@@ -78,6 +85,9 @@ class PayloadTest extends FCMTestCase
 
     /**
      * @test
+     * @covers \LaravelFCM\FCMServiceProvider
+     * @covers \LaravelFCM\Message\PayloadNotification
+     * @covers \LaravelFCM\Message\PayloadNotificationBuilder
      */
     public function it_construct_a_valid_json_with_notification()
     {
@@ -131,10 +141,13 @@ class PayloadTest extends FCMTestCase
 
     /**
      * @test
+     * @covers \LaravelFCM\FCMServiceProvider
+     * @covers \LaravelFCM\Message\OptionsBuilder
+     * @covers \LaravelFCM\Message\Exceptions\InvalidOptionsException
      */
     public function it_throws_an_invalidoptionsexception_if_the_interval_is_too_big()
     {
-        $this->setExpectedException(InvalidOptionsException::class);
+        $this->expectException(InvalidOptionsException::class);
 
         $optionBuilder = new OptionsBuilder();
         $optionBuilder->setTimeToLive(2419200 * 10);

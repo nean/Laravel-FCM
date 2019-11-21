@@ -3,10 +3,16 @@
 use GuzzleHttp\Psr7\Response;
 use LaravelFCM\Response\TopicResponse;
 
+/**
+ * Class TopicsResponseTest
+ * @uses \LaravelFCM\FCMServiceProvider
+ * @uses \LaravelFCM\Message\Topics
+ */
 class TopicsResponseTest extends FCMTestCase
 {
     /**
      * @test
+     * @covers \LaravelFCM\Response\TopicResponse<extended>
      */
     public function it_construct_a_topic_response_with_success()
     {
@@ -26,6 +32,7 @@ class TopicsResponseTest extends FCMTestCase
 
     /**
      * @test
+     * @covers \LaravelFCM\Response\TopicResponse<extended>
      */
     public function it_construct_a_topic_response_with_error()
     {
@@ -45,6 +52,7 @@ class TopicsResponseTest extends FCMTestCase
 
     /**
      * @test
+     * @covers \LaravelFCM\Response\TopicResponse<extended>
      */
     public function it_construct_a_topic_response_with_error_and_it_should_retry()
     {

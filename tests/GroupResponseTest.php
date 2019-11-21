@@ -6,6 +6,8 @@ class GroupResponseTest extends FCMTestCase
 {
     /**
      * @test
+     * @covers \LaravelFCM\FCMServiceProvider
+     * @covers \LaravelFCM\Response\GroupResponse<extended>
      */
     public function it_construct_a_response_with_successes()
     {
@@ -25,6 +27,8 @@ class GroupResponseTest extends FCMTestCase
 
     /**
      * @test
+     * @covers \LaravelFCM\FCMServiceProvider
+     * @covers \LaravelFCM\Response\GroupResponse<extended>
      */
     public function it_construct_a_response_with_failures()
     {
@@ -50,6 +54,8 @@ class GroupResponseTest extends FCMTestCase
 
     /**
      * @test
+     * @covers \LaravelFCM\FCMServiceProvider
+     * @covers \LaravelFCM\Response\GroupResponse<extended>
      */
     public function it_construct_a_response_with_partials_failures()
     {

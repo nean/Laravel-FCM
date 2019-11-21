@@ -3,10 +3,15 @@
 use GuzzleHttp\Psr7\Response;
 use LaravelFCM\Response\DownstreamResponse;
 
+/**
+ * Class DownstreamResponseTest
+ * @uses \LaravelFCM\FCMServiceProvider
+ */
 class DownstreamResponseTest extends FCMTestCase
 {
     /**
      * @test
+     * @covers \LaravelFCM\Response\DownstreamResponse<extended>
      */
     public function it_construct_a_response_with_a_success()
     {
@@ -34,6 +39,7 @@ class DownstreamResponseTest extends FCMTestCase
 
     /**
      * @test
+     * @covers \LaravelFCM\Response\DownstreamResponse<extended>
      */
     public function it_construct_a_response_with_multiple_successes()
     {
@@ -67,6 +73,7 @@ class DownstreamResponseTest extends FCMTestCase
 
     /**
      * @test
+     * @covers \LaravelFCM\Response\DownstreamResponse<extended>
      */
     public function it_construct_a_response_with_a_failure()
     {
@@ -96,6 +103,7 @@ class DownstreamResponseTest extends FCMTestCase
 
     /**
      * @test
+     * @covers \LaravelFCM\Response\DownstreamResponse<extended>
      */
     public function it_construct_a_response_with_multiple_failures()
     {
@@ -135,6 +143,7 @@ class DownstreamResponseTest extends FCMTestCase
 
     /**
      * @test
+     * @covers \LaravelFCM\Response\DownstreamResponse<extended>
      */
     public function it_construct_a_response_with_a_token_to_change()
     {
@@ -165,6 +174,7 @@ class DownstreamResponseTest extends FCMTestCase
 
     /**
      * @test
+     * @covers \LaravelFCM\Response\DownstreamResponse<extended>
      */
     public function it_construct_a_response_with_multiple_tokens_to_change()
     {
@@ -207,6 +217,7 @@ class DownstreamResponseTest extends FCMTestCase
 
     /**
      * @test
+     * @covers \LaravelFCM\Response\DownstreamResponse<extended>
      */
     public function it_construct_a_response_with_a_token_unavailable()
     {
@@ -238,6 +249,7 @@ class DownstreamResponseTest extends FCMTestCase
 
     /**
      * @test
+     * @covers \LaravelFCM\Response\DownstreamResponse<extended>
      */
     public function it_construct_a_response_with_a_token_server_error()
     {
@@ -269,6 +281,7 @@ class DownstreamResponseTest extends FCMTestCase
 
     /**
      * @test
+     * @covers \LaravelFCM\Response\DownstreamResponse<extended>
      */
     public function it_construct_a_response_with_a_token_exceeded()
     {
@@ -300,6 +313,7 @@ class DownstreamResponseTest extends FCMTestCase
 
     /**
      * @test
+     * @covers \LaravelFCM\Response\DownstreamResponse<extended>
      */
     public function it_construct_a_response_with_a_mixed_token_to_retry()
     {
@@ -348,6 +362,7 @@ class DownstreamResponseTest extends FCMTestCase
 
     /**
      * @test
+     * @covers \LaravelFCM\Response\DownstreamResponse<extended>
      */
     public function it_construct_a_response_with_mixed_response()
     {
@@ -394,6 +409,7 @@ class DownstreamResponseTest extends FCMTestCase
 
     /**
      * @test
+     * @covers \LaravelFCM\Response\DownstreamResponse<extended>
      */
     public function it_construct_a_response_with_multiples_response()
     {

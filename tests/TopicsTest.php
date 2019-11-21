@@ -10,17 +10,22 @@ class TopicsTest extends FCMTestCase
 {
     /**
      * @test
+     * @uses \LaravelFCM\FCMServiceProvider
+     * @covers \LaravelFCM\Message\Topics
+     * @covers \LaravelFCM\Message\Exceptions\NoTopicProvidedException
      */
     public function it_throw_an_exception_if_no_topic_is_provided()
     {
         $topics = new Topics();
 
-        $this->setExpectedException(NoTopicProvidedException::class);
+        $this->expectException(NoTopicProvidedException::class);
         $topics->build();
     }
 
     /**
      * @test
+     * @uses \LaravelFCM\FCMServiceProvider
+     * @covers \LaravelFCM\Message\Topics
      */
     public function it_has_only_one_topic()
     {
@@ -35,6 +40,8 @@ class TopicsTest extends FCMTestCase
 
     /**
      * @test
+     * @uses \LaravelFCM\FCMServiceProvider
+     * @covers \LaravelFCM\Message\Topics
      */
     public function it_has_two_topics_and()
     {
@@ -51,6 +58,8 @@ class TopicsTest extends FCMTestCase
 
     /**
      * @test
+     * @uses \LaravelFCM\FCMServiceProvider
+     * @covers \LaravelFCM\Message\Topics
      */
     public function it_has_two_topics_or()
     {
@@ -67,6 +76,8 @@ class TopicsTest extends FCMTestCase
 
     /**
      * @test
+     * @uses \LaravelFCM\FCMServiceProvider
+     * @covers \LaravelFCM\Message\Topics
      */
     public function it_has_two_topics_or_and_one_and()
     {
@@ -83,6 +94,8 @@ class TopicsTest extends FCMTestCase
 
     /**
      * @test
+     * @uses \LaravelFCM\FCMServiceProvider
+     * @covers \LaravelFCM\Message\Topics
      */
     public function it_has_a_complex_topic_condition()
     {
@@ -105,6 +118,11 @@ class TopicsTest extends FCMTestCase
 
     /**
      * @test
+     * @covers \LaravelFCM\FCMServiceProvider
+     * @covers \LaravelFCM\Message\Topics
+     * @covers \LaravelFCM\Request\Request<extended>
+     * @covers \LaravelFCM\Response\TopicResponse<extended>
+     * @covers \LaravelFCM\Sender\FCMSender<extended>
      */
     public function it_send_a_notification_to_a_topic()
     {
@@ -127,6 +145,11 @@ class TopicsTest extends FCMTestCase
 
     /**
      * @test
+     * @covers \LaravelFCM\FCMServiceProvider
+     * @covers \LaravelFCM\Message\Topics
+     * @covers \LaravelFCM\Request\Request<extended>
+     * @covers \LaravelFCM\Response\TopicResponse<extended>
+     * @covers \LaravelFCM\Sender\FCMSender<extended>
      */
     public function it_send_a_notification_to_a_topic_and_return_error()
     {
