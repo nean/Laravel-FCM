@@ -149,7 +149,7 @@ class PayloadNotification implements Arrayable
         $notification = array_filter($notification, function ($value) {
             return $value !== null;
         });
-        
+
         return $notification;
     }
 }

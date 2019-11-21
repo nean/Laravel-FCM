@@ -4,7 +4,7 @@ use GuzzleHttp\Psr7\Response;
 use LaravelFCM\Response\DownstreamResponse;
 
 /**
- * Class DownstreamResponseTest
+ * Class DownstreamResponseTest.
  * @uses \LaravelFCM\FCMServiceProvider
  */
 class DownstreamResponseTest extends FCMTestCase
@@ -97,7 +97,7 @@ class DownstreamResponseTest extends FCMTestCase
         $this->assertFalse($downstreamResponse->hasMissingToken());
 
         $this->assertCount(1, $downstreamResponse->tokensToDelete());
-        $this->assertEquals($token, $downstreamResponse->tokensToDelete()[ 0 ]);
+        $this->assertEquals($token, $downstreamResponse->tokensToDelete()[0]);
         $this->assertCount(0, $downstreamResponse->tokensToModify());
     }
 
@@ -135,9 +135,9 @@ class DownstreamResponseTest extends FCMTestCase
         $this->assertTrue($downstreamResponse->hasMissingToken());
 
         $this->assertCount(3, $downstreamResponse->tokensToDelete());
-        $this->assertEquals($tokens[ 0 ], $downstreamResponse->tokensToDelete()[ 0 ]);
-        $this->assertEquals($tokens[ 1 ], $downstreamResponse->tokensToDelete()[ 1 ]);
-        $this->assertEquals($tokens[ 2 ], $downstreamResponse->tokensToDelete()[ 2 ]);
+        $this->assertEquals($tokens[0], $downstreamResponse->tokensToDelete()[0]);
+        $this->assertEquals($tokens[1], $downstreamResponse->tokensToDelete()[1]);
+        $this->assertEquals($tokens[2], $downstreamResponse->tokensToDelete()[2]);
         $this->assertCount(0, $downstreamResponse->tokensToModify());
     }
 
@@ -169,7 +169,7 @@ class DownstreamResponseTest extends FCMTestCase
         $this->assertCount(1, $downstreamResponse->tokensToModify());
 
         $this->assertTrue(array_key_exists($token, $downstreamResponse->tokensToModify()));
-        $this->assertEquals('32', $downstreamResponse->tokensToModify()[ $token ]);
+        $this->assertEquals('32', $downstreamResponse->tokensToModify()[$token]);
     }
 
     /**
@@ -205,14 +205,14 @@ class DownstreamResponseTest extends FCMTestCase
         $this->assertCount(0, $downstreamResponse->tokensToDelete());
         $this->assertCount(3, $downstreamResponse->tokensToModify());
 
-        $this->assertTrue(array_key_exists($tokens[ 0 ], $downstreamResponse->tokensToModify()));
-        $this->assertEquals('32', $downstreamResponse->tokensToModify()[ $tokens[ 0 ] ]);
+        $this->assertTrue(array_key_exists($tokens[0], $downstreamResponse->tokensToModify()));
+        $this->assertEquals('32', $downstreamResponse->tokensToModify()[$tokens[0]]);
 
-        $this->assertTrue(array_key_exists($tokens[ 1 ], $downstreamResponse->tokensToModify()));
-        $this->assertEquals('33', $downstreamResponse->tokensToModify()[ $tokens[ 1 ] ]);
+        $this->assertTrue(array_key_exists($tokens[1], $downstreamResponse->tokensToModify()));
+        $this->assertEquals('33', $downstreamResponse->tokensToModify()[$tokens[1]]);
 
-        $this->assertTrue(array_key_exists($tokens[ 2 ], $downstreamResponse->tokensToModify()));
-        $this->assertEquals('34', $downstreamResponse->tokensToModify()[ $tokens[ 2 ] ]);
+        $this->assertTrue(array_key_exists($tokens[2], $downstreamResponse->tokensToModify()));
+        $this->assertEquals('34', $downstreamResponse->tokensToModify()[$tokens[2]]);
     }
 
     /**
@@ -352,12 +352,12 @@ class DownstreamResponseTest extends FCMTestCase
         $this->assertCount(0, $downstreamResponse->tokensToDelete());
         $this->assertCount(6, $downstreamResponse->tokensToRetry());
 
-        $this->assertEquals($tokens[ 0 ], $downstreamResponse->tokensToRetry()[ 0 ]);
-        $this->assertEquals($tokens[ 1 ], $downstreamResponse->tokensToRetry()[ 1 ]);
-        $this->assertEquals($tokens[ 2 ], $downstreamResponse->tokensToRetry()[ 2 ]);
-        $this->assertEquals($tokens[ 3 ], $downstreamResponse->tokensToRetry()[ 3 ]);
-        $this->assertEquals($tokens[ 4 ], $downstreamResponse->tokensToRetry()[ 4 ]);
-        $this->assertEquals($tokens[ 5 ], $downstreamResponse->tokensToRetry()[ 5 ]);
+        $this->assertEquals($tokens[0], $downstreamResponse->tokensToRetry()[0]);
+        $this->assertEquals($tokens[1], $downstreamResponse->tokensToRetry()[1]);
+        $this->assertEquals($tokens[2], $downstreamResponse->tokensToRetry()[2]);
+        $this->assertEquals($tokens[3], $downstreamResponse->tokensToRetry()[3]);
+        $this->assertEquals($tokens[4], $downstreamResponse->tokensToRetry()[4]);
+        $this->assertEquals($tokens[5], $downstreamResponse->tokensToRetry()[5]);
     }
 
     /**
@@ -400,11 +400,11 @@ class DownstreamResponseTest extends FCMTestCase
         $this->assertCount(2, $downstreamResponse->tokensToDelete());
         $this->assertCount(1, $downstreamResponse->tokensToModify());
 
-        $this->assertEquals($tokens[ 2 ], $downstreamResponse->tokensToDelete()[ 0 ]);
-        $this->assertEquals($tokens[ 5 ], $downstreamResponse->tokensToDelete()[ 1 ]);
+        $this->assertEquals($tokens[2], $downstreamResponse->tokensToDelete()[0]);
+        $this->assertEquals($tokens[5], $downstreamResponse->tokensToDelete()[1]);
 
-        $this->assertTrue(array_key_exists($tokens[ 4 ], $downstreamResponse->tokensToModify()));
-        $this->assertEquals('32', $downstreamResponse->tokensToModify()[ $tokens[ 4 ] ]);
+        $this->assertTrue(array_key_exists($tokens[4], $downstreamResponse->tokensToModify()));
+        $this->assertEquals('32', $downstreamResponse->tokensToModify()[$tokens[4]]);
     }
 
     /**
@@ -463,10 +463,10 @@ class DownstreamResponseTest extends FCMTestCase
         $this->assertCount(2, $downstreamResponse->tokensToModify());
         $this->assertCount(2, $downstreamResponse->tokensWithError());
 
-        $this->assertEquals($tokens[ 2 ], $downstreamResponse->tokensToDelete()[ 0 ]);
-        $this->assertEquals($tokens1[ 2 ], $downstreamResponse->tokensToDelete()[ 2 ]);
-        $this->assertEquals($tokens[ 5 ], $downstreamResponse->tokensToDelete()[ 1 ]);
-        $this->assertEquals($tokens1[ 5 ], $downstreamResponse->tokensToDelete()[ 3 ]);
+        $this->assertEquals($tokens[2], $downstreamResponse->tokensToDelete()[0]);
+        $this->assertEquals($tokens1[2], $downstreamResponse->tokensToDelete()[2]);
+        $this->assertEquals($tokens[5], $downstreamResponse->tokensToDelete()[1]);
+        $this->assertEquals($tokens1[5], $downstreamResponse->tokensToDelete()[3]);
 
         $this->assertCount(2, $downstreamResponse->tokensToRetry());
 

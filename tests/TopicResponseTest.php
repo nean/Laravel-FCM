@@ -4,7 +4,7 @@ use GuzzleHttp\Psr7\Response;
 use LaravelFCM\Response\TopicResponse;
 
 /**
- * Class TopicsResponseTest
+ * Class TopicsResponseTest.
  * @uses \LaravelFCM\FCMServiceProvider
  * @uses \LaravelFCM\Message\Topics
  */

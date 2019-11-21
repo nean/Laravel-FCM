@@ -156,9 +156,9 @@ class DownstreamResponse extends BaseResponse implements DownstreamResponseContr
     private function parseResult($responseInJson)
     {
         foreach ($responseInJson[self::RESULTS] as $index => $result) {
-            if (!$this->isSent($result)) {
-                if (!$this->needToBeModify($index, $result)) {
-                    if (!$this->needToBeDeleted($index, $result) && !$this->needToResend($index, $result) && !$this->checkMissingToken($result)) {
+            if (! $this->isSent($result)) {
+                if (! $this->needToBeModify($index, $result)) {
+                    if (! $this->needToBeDeleted($index, $result) && ! $this->needToResend($index, $result) && ! $this->checkMissingToken($result)) {
                         $this->needToAddError($index, $result);
                     }
                 }
@@ -187,7 +187,7 @@ class DownstreamResponse extends BaseResponse implements DownstreamResponseContr
      */
     private function isSent($results)
     {
-        return array_key_exists(self::MESSAGE_ID, $results) && !array_key_exists(self::REGISTRATION_ID, $results);
+        return array_key_exists(self::MESSAGE_ID, $results) && ! array_key_exists(self::REGISTRATION_ID, $results);
     }
 
     /**
@@ -306,7 +306,7 @@ class DownstreamResponse extends BaseResponse implements DownstreamResponseContr
      *
      * @param DownstreamResponse $response
      */
-    public function merge(DownstreamResponse $response)
+    public function merge(self $response)
     {
         $this->numberTokensSuccess += $response->numberSuccess();
         $this->numberTokensFailure += $response->numberFailure();

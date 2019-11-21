@@ -119,6 +119,7 @@ class MockDownstreamResponse implements DownstreamResponseContract
     public function addTokenToDelete($token)
     {
         $this->tokensToDelete[] = $token;
+
         return $this;
     }
 
@@ -143,6 +144,7 @@ class MockDownstreamResponse implements DownstreamResponseContract
     public function addTokenToModify($oldToken, $newToken)
     {
         $this->tokensToModify[$oldToken] = $newToken;
+
         return $this;
     }
 
@@ -168,6 +170,7 @@ class MockDownstreamResponse implements DownstreamResponseContract
     public function addTokenToRetry($token)
     {
         $this->tokensToRetry[] = $token;
+
         return $this;
     }
 
@@ -191,6 +194,7 @@ class MockDownstreamResponse implements DownstreamResponseContract
     public function addTokenWithError($token, $message)
     {
         $this->tokensWithError[$token] = $message;
+
         return $this;
     }
 
@@ -216,6 +220,7 @@ class MockDownstreamResponse implements DownstreamResponseContract
     public function setMissingToken($hasMissingToken)
     {
         $this->hasMissingToken = $hasMissingToken;
+
         return $this;
     }
 

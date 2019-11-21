@@ -36,7 +36,7 @@ class FCMSender extends HTTPSender
     {
         $response = null;
 
-        if (is_array($to) && !empty($to)) {
+        if (is_array($to) && ! empty($to)) {
             $partialTokens = array_chunk($to, self::MAX_TOKEN_PER_REQUEST, false);
             foreach ($partialTokens as $tokens) {
                 $request = new Request($tokens, $options, $notification, $data);
@@ -44,7 +44,7 @@ class FCMSender extends HTTPSender
                 $responseGuzzle = $this->post($request);
 
                 $responsePartial = new DownstreamResponse($responseGuzzle, $tokens);
-                if (!$response) {
+                if (! $response) {
                     $response = $responsePartial;
                 } else {
                     $response->merge($responsePartial);

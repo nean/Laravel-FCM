@@ -97,7 +97,7 @@ class OptionsBuilder
      */
     public function setPriority($priority)
     {
-        if (!OptionsPriorities::isValid($priority)) {
+        if (! OptionsPriorities::isValid($priority)) {
             throw new InvalidOptionsException('priority is not valid, please refer to the documentation or use the constants of the class "OptionsPriorities"');
         }
         $this->priority = $priority;
@@ -125,12 +125,12 @@ class OptionsBuilder
     }
 
     /**
-     * support iOS 10+
+     * support iOS 10+.
      *
      * When a notification is sent and this is set to true,
      * the content of the notification can be modified before it is displayed.
      *
-     * @param String $isMutableContent
+     * @param string $isMutableContent
      * @return OptionsBuilder
      */
     public function setMutableContent($isMutableContent)
@@ -233,7 +233,7 @@ class OptionsBuilder
     }
 
     /**
-     * is mutable content
+     * is mutable content.
      *
      * @return bool
      */

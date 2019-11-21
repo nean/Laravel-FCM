@@ -219,7 +219,7 @@ class Topics
      */
     private function checkIfOneTopicExist()
     {
-        if (!count($this->conditions)) {
+        if (! count($this->conditions)) {
             throw new NoTopicProvidedException('At least one topic must be provided');
         }
     }
