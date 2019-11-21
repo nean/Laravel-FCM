@@ -61,7 +61,7 @@ class TopicResponse extends BaseResponse implements TopicResponseContract
      */
     protected function parseResponse($responseInJson)
     {
-        if (!$this->parseSuccess($responseInJson)) {
+        if (! $this->parseSuccess($responseInJson)) {
             $this->parseError($responseInJson);
         }
 
@@ -78,7 +78,7 @@ class TopicResponse extends BaseResponse implements TopicResponseContract
     private function parseSuccess($responseInJson)
     {
         if (array_key_exists(self::MESSAGE_ID, $responseInJson)) {
-            $this->messageId = $responseInJson[ self::MESSAGE_ID ];
+            $this->messageId = $responseInJson[self::MESSAGE_ID];
         }
     }
 
@@ -94,7 +94,7 @@ class TopicResponse extends BaseResponse implements TopicResponseContract
                 $this->needRetry = true;
             }
 
-            $this->error = $responseInJson[ self::ERROR ];
+            $this->error = $responseInJson[self::ERROR];
         }
     }
 
@@ -108,7 +108,7 @@ class TopicResponse extends BaseResponse implements TopicResponseContract
 
         $topic = $this->topic->build();
 
-        $logMessage = "notification send to topic: ".json_encode($topic);
+        $logMessage = 'notification send to topic: '.json_encode($topic);
         if ($this->messageId) {
             $logMessage .= "with success (message-id : $this->messageId)";
         } else {
