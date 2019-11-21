@@ -18,6 +18,7 @@ phpdoc.xml
 build/*
 .php_cs.cache
 .phpunit.result.cache
+.composer.lock
 
 # Editors
 .sublime-workspace
