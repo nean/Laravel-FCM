@@ -2,8 +2,7 @@
 
 namespace LaravelFCM\Response;
 
-use Monolog\Handler\StreamHandler;
-use Monolog\Logger;
+use Illuminate\Support\Facades\Log;
 use Psr\Http\Message\ResponseInterface;
 
 /**
@@ -98,6 +97,9 @@ class DownstreamResponse extends BaseResponse implements DownstreamResponseContr
      *
      * @param \Psr\Http\Message\ResponseInterface $response
      * @param                $tokens
+     * @throws Exceptions\InvalidRequestException
+     * @throws Exceptions\ServerResponseException
+     * @throws Exceptions\UnauthorizedRequestException
      */
     public function __construct(ResponseInterface $response, $tokens)
     {
@@ -290,15 +292,12 @@ class DownstreamResponse extends BaseResponse implements DownstreamResponseContr
      */
     protected function logResponse()
     {
-        $logger = new Logger('Laravel-FCM');
-        $logger->pushHandler(new StreamHandler(storage_path('logs/laravel-fcm.log')));
-
-        $logMessage = 'notification send to '.count($this->tokens).' devices'.PHP_EOL;
+        $logMessage = '[Laravel-FCM] notification send to '.count($this->tokens).' devices'.PHP_EOL;
         $logMessage .= 'success: '.$this->numberTokensSuccess.PHP_EOL;
         $logMessage .= 'failures: '.$this->numberTokensFailure.PHP_EOL;
         $logMessage .= 'number of modified token : '.$this->numberTokenModify.PHP_EOL;
 
-        $logger->info($logMessage);
+        Log::info($logMessage);
     }
 
     /**

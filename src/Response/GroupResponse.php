@@ -2,8 +2,7 @@
 
 namespace LaravelFCM\Response;
 
-use Monolog\Handler\StreamHandler;
-use Monolog\Logger;
+use Illuminate\Support\Facades\Log;
 use Psr\Http\Message\ResponseInterface;
 
 /**
@@ -46,6 +45,9 @@ class GroupResponse extends BaseResponse implements GroupResponseContract
      *
      * @param \Psr\Http\Message\ResponseInterface $response
      * @param                $to
+     * @throws Exceptions\InvalidRequestException
+     * @throws Exceptions\ServerResponseException
+     * @throws Exceptions\UnauthorizedRequestException
      */
     public function __construct(ResponseInterface $response, $to)
     {
@@ -74,13 +76,10 @@ class GroupResponse extends BaseResponse implements GroupResponseContract
      */
     protected function logResponse()
     {
-        $logger = new Logger('Laravel-FCM');
-        $logger->pushHandler(new StreamHandler(storage_path('logs/laravel-fcm.log')));
-
-        $logMessage = "notification send to group: $this->to";
+        $logMessage = "[Laravel-FCM] notification send to group: $this->to";
         $logMessage .= "with $this->numberTokensSuccess success and $this->numberTokensFailure";
 
-        $logger->info($logMessage);
+        Log::info($logMessage);
     }
 
     /**

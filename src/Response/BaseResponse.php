@@ -26,6 +26,9 @@ abstract class BaseResponse
      * BaseResponse constructor.
      *
      * @param \Psr\Http\Message\ResponseInterface $response
+     * @throws InvalidRequestException
+     * @throws ServerResponseException
+     * @throws UnauthorizedRequestException
      */
     public function __construct(ResponseInterface $response)
     {
