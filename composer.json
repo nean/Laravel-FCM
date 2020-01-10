@@ -39,6 +39,9 @@
     "config": {
         "sort-packages": true
     },
+    "scripts": {
+        "test": "@php vendor/phpunit/phpunit/phpunit"
+    },
     "minimum-stability": "dev",
     "prefer-stable": true,
     "extra": {

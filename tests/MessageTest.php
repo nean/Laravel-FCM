@@ -81,6 +81,10 @@ class PayloadTest extends FCMTestCase
 
         $json = json_encode($dataBuilder->build()->toArray());
         $this->assertJsonStringEqualsJsonString($targetSet, $json);
+
+        // @todo fix toArray return empty array
+        $dataBuilder->removeAllData();
+        $this->assertNull($dataBuilder->build()->toArray());
     }
 
     /**

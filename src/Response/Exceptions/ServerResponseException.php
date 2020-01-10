@@ -25,12 +25,9 @@ class ServerResponseException extends Exception
     public function __construct(ResponseInterface $response)
     {
         $code = $response->getStatusCode();
-        $responseHeader = $response->getHeaders();
         $responseBody = $response->getBody()->getContents();
 
-        if (array_keys($responseHeader, 'Retry-After')) {
-            $this->retryAfter = $responseHeader['Retry-After'];
-        }
+        $this->retryAfter = (int) $response->getHeaderLine('Retry-After');
 
         parent::__construct($responseBody, $code);
     }

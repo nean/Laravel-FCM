@@ -11,12 +11,23 @@ abstract class FCMTestCase extends TestCase
         $app->make(Illuminate\Contracts\Console\Kernel::class)->bootstrap();
         $app->register(LaravelFCM\FCMServiceProvider::class);
 
-        $app['config']['fcm.driver'] = 'http';
-        $app['config']['fcm.http.timeout'] = 20;
-        $app['config']['fcm.http.server_send_url'] = 'http://test.test';
-        $app['config']['fcm.http.server_key'] = 'key=myKey';
-        $app['config']['fcm.http.sender_id'] = 'SENDER_ID';
+        config($this->getDefaultConfig());
 
         return $app;
+    }
+
+    protected function getDefaultConfig()
+    {
+        return [
+            'fcm' => [
+                'log_enabled' => false,
+                'http' => [
+                    'server_key' => 'some_secret_key',
+                    'sender_id' => 'some_sender_id',
+                    'server_send_url' => 'http://test.test',
+                    'timeout' => 20,
+                ],
+            ]
+        ];
     }
 }

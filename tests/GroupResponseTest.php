@@ -1,9 +1,57 @@
 <?php
 
 use LaravelFCM\Response\GroupResponse;
+use GuzzleHttp\Psr7\Response;
+use Illuminate\Support\Facades\Log;
 
+/**
+ * Class GroupResponseTest
+ * @uses \LaravelFCM\FCMServiceProvider
+ */
 class GroupResponseTest extends FCMTestCase
 {
+    /**
+     * @test
+     * @covers \LaravelFCM\Response\GroupResponse<extended>
+     */
+    public function it_logs_when_log_enabled()
+    {
+        $this->afterApplicationCreated(function () {
+            config(['fcm.log_enabled' => true]);
+        });
+
+        $notificationKey = 'notificationKey';
+
+        $response = new Response(200, [], '{
+					"success": 2,
+					"failure": 0
+					}');
+
+        Log::shouldReceive('info')
+            ->once();
+
+        $groupResponse = new GroupResponse($response, $notificationKey);
+    }
+
+    /**
+     * @test
+     * @covers \LaravelFCM\Response\GroupResponse<extended>
+     */
+    public function it_does_not_log_when_log_disabled()
+    {
+        $notificationKey = 'notificationKey';
+
+        $response = new Response(200, [], '{
+					"success": 2,
+					"failure": 0
+					}');
+
+        Log::shouldReceive('info')
+            ->never();
+
+        $groupResponse = new GroupResponse($response, $notificationKey);
+    }
+
     /**
      * @test
      * @covers \LaravelFCM\FCMServiceProvider

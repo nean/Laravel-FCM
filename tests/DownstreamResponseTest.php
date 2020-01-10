@@ -2,6 +2,7 @@
 
 use GuzzleHttp\Psr7\Response;
 use LaravelFCM\Response\DownstreamResponse;
+use Illuminate\Support\Facades\Log;
 
 /**
  * Class DownstreamResponseTest.
@@ -9,6 +10,58 @@ use LaravelFCM\Response\DownstreamResponse;
  */
 class DownstreamResponseTest extends FCMTestCase
 {
+    /**
+     * @test
+     * @covers \LaravelFCM\Response\DownstreamResponse<extended>
+     */
+    public function it_logs_when_log_enabled()
+    {
+        $token = 'first_token';
+
+        $this->afterApplicationCreated(function () {
+            config(['fcm.log_enabled' => true]);
+        });
+
+        $response = new Response(200, [], '{
+		                    "multicast_id": 108,
+                            "success": 1,
+                            "failure": 0,
+                            "canonical_ids": 0,
+                            "results": [
+                                { "message_id": "1:08" }
+                            ]
+						}');
+
+        Log::shouldReceive('info')
+            ->once();
+
+        $downstreamResponse = new DownstreamResponse($response, $token);
+    }
+
+    /**
+     * @test
+     * @covers \LaravelFCM\Response\DownstreamResponse<extended>
+     */
+    public function it_does_not_log_when_log_disabled()
+    {
+        $token = 'first_token';
+
+        $response = new Response(200, [], '{
+		                    "multicast_id": 108,
+                            "success": 1,
+                            "failure": 0,
+                            "canonical_ids": 0,
+                            "results": [
+                                { "message_id": "1:08" }
+                            ]
+						}');
+
+        Log::shouldReceive('info')
+            ->never();
+
+        $downstreamResponse = new DownstreamResponse($response, $token);
+    }
+
     /**
      * @test
      * @covers \LaravelFCM\Response\DownstreamResponse<extended>
